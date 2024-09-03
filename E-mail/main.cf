@@ -6,7 +6,7 @@
 # is /etc/mailname.
 #myorigin = /etc/mailname
 
-myorigin = parnamirim.ifrn.asa.br.
+myorigin = parnamirim.ifrn.asa.br
 
 smtpd_banner = $myhostname ESMTP $mail_name (Ubuntu) IFRN/ASA
 biff = no
