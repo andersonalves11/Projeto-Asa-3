@@ -1,0 +1,76 @@
+services:
+  web01:
+    build:
+      context: ./web01
+      dockerfile: Dockerfile
+    image: web01
+    container_name: web01
+    networks:
+      - asa-network
+  web02:
+    build:
+      context: ./web02
+      dockerfile: Dockerfile
+    image: web02
+    container_name: web02
+    networks:
+      - asa-network
+  web03:
+    build:
+      context: ./web03
+      dockerfile: Dockerfile
+    image: web03
+    container_name: web03
+    networks:
+      - asa-network    
+  proxy:
+    build:
+      context: ./proxy
+      dockerfile: Dockerfile
+    image: proxy
+    container_name: proxy
+    ports:
+      - "80:80/tcp"
+      - "443:443/tcp"
+    depends_on:
+      - web01
+      - web02
+      - web03
+      - wordpress
+    networks:
+      - asa-network 
+
+  wordpress:
+      image: wordpress:latest
+      #ports:
+       # - "8081:80"
+      environment:
+        WORDPRESS_DB_HOST: db:3306
+        WORDPRESS_DB_NAME: wordpress
+        WORDPRESS_DB_USER: wordpress
+        WORDPRESS_DB_PASSWORD: wordpress
+      volumes:
+        - wordpress_data:/var/www/html
+      networks:
+        - asa-network
+  db:
+      image: mysql:5.7
+      environment:
+        MYSQL_ROOT_PASSWORD: example
+        MYSQL_DATABASE: wordpress
+        MYSQL_USER: wordpress
+        MYSQL_PASSWORD: wordpress
+      volumes:
+        - db_data:/var/lib/mysql
+      networks:
+        - asa-network
+
+volumes:
+  wordpress_data:
+  db_data:
+  
+#Docker networks
+networks:
+  asa-network:
+    driver: bridge
+

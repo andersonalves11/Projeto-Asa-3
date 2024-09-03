@@ -1,0 +1,17 @@
+;
+; BIND data file for local loopback interface
+;
+$TTL	604800
+@	IN	SOA	parnamirim.ifrn.asa.br. root.parnamirim.ifrn.asa.br. (
+			 2024091523     ; Serial
+			 604800		; Refresh
+			  86400		; Retry
+			2419200		; Expire
+			 604800 )	; Negative Cache TTL
+;
+@	IN  	MX 10 mail.parnamirim.ifrn.asa.br.
+@	IN	NS	ns1.parnamirim.ifrn.asa.br.
+ns1	IN		A	10.25.2.101
+mail	IN		A 	10.25.2.101
+www	IN		CNAME	ns1
+

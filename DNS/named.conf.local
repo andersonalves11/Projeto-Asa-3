@@ -1,0 +1,17 @@
+options {
+listen-on port 53 { any; };
+directory "/var/cache/bind";
+allow-query { any; };	
+};
+
+zone "parnamirim.ifrn.asa.br" {
+	type master;
+	file "/etc/bind/parnamirim.ifrn.asa.br";	
+	allow-transfer { any; };
+	allow-query { any; };
+};
+
+zone "2.25.10.in-addr.arpa" {
+    type master;
+    file "/etc/bind/parnamirim.ifrn.asa.br.10.25.2";
+};
