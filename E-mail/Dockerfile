@@ -14,8 +14,8 @@ COPY 10-auth.conf /etc/dovecot/conf.d
 
 # Add User
 RUN useradd -m bob
-RUN useradd -m patrick
-RUN useradd -m edmar
+RUN useradd -m anderson
+RUN useradd -m gleyka
 RUN useradd -m redes
 # Set user passord
 RUN echo "bob:redes"|chpasswd
