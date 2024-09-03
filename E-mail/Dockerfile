@@ -19,8 +19,8 @@ RUN useradd -m gleyka
 RUN useradd -m redes
 # Set user passord
 RUN echo "bob:redes"|chpasswd
-RUN echo "patrick:redes"|chpasswd
-RUN echo "edmar:redes"|chpasswd
+RUN echo "anderson:redes"|chpasswd
+RUN echo "gleyka:redes"|chpasswd
 RUN echo "redes:redes"|chpasswd
 
 CMD ["sh", "-c", "service syslog-ng start ; service postfix start ; service dovecot start; tail -F /var/log/mail.log"]
