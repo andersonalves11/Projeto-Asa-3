@@ -4,14 +4,23 @@ RUN apt update
 
 RUN apt upgrade -y
 
-RUN apt install postfix vim dnsutils iputils-ping telnet -y
+RUN apt install postfix  dovecot-imapd dovecot-pop3d -y
+
+RUN apt install -q -y syslog-ng
 
 COPY main.cf /etc/postfix
 
+COPY 10-auth.conf /etc/dovecot/conf.d
+
 # Add User
-#RUN useradd -c 'User Bob' -m -s /bin/false bob
-
+RUN useradd -m bob
+RUN useradd -m patrick
+RUN useradd -m edmar
+RUN useradd -m redes
 # Set user passord
-#RUN echo -e "pwd123" | passwd bob
+RUN echo "bob:redes"|chpasswd
+RUN echo "patrick:redes"|chpasswd
+RUN echo "edmar:redes"|chpasswd
+RUN echo "redes:redes"|chpasswd
 
-CMD ["postfix", "start-fg"]
+CMD ["sh", "-c", "service syslog-ng start ; service postfix start ; service dovecot start; tail -F /var/log/mail.log"]
