@@ -1,15 +1,4 @@
 services:
-  bind9:
-    build:
-      context: ./DNS
-      dockerfile: Dockerfile
-    image: bind9
-    container_name: bind9
-    ports:
-      - "53:53/tcp"
-      - "53:53/udp"
-    networks:
-      - asa-network
   web01:
     build:
       context: ./web01
@@ -75,7 +64,18 @@ services:
         - db_data:/var/lib/mysql
       networks:
         - asa-network
-
+  bind9:
+    build:
+      context: ./DNS
+      dockerfile: Dockerfile
+    image: bind9
+    container_name: bind9
+    ports:
+      - "53:53/tcp"
+      - "53:53/udp"
+    networks:
+      - asa-network
+      
 volumes:
   wordpress_data:
   db_data:
