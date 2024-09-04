@@ -1,5 +1,5 @@
 services:
-bind9:
+  bind9:
     build:
       context: ./DNS
       dockerfile: Dockerfile
