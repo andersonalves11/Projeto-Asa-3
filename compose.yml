@@ -2,7 +2,7 @@ services:
 bind9:
     build:
       context: .
-      dockerfile: Dockerfile.bind
+      dockerfile: Dockerfile
     image: bind9
     container_name: bind9
     ports:
