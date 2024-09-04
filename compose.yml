@@ -1,7 +1,7 @@
 services:
 bind9:
     build:
-      context: .
+      context: ./DNS
       dockerfile: Dockerfile
     image: bind9
     container_name: bind9
