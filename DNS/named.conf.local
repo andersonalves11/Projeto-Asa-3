@@ -4,6 +4,13 @@ directory "/var/cache/bind";
 allow-query { any; };	
 };
 
+zone "ifrn.asa.br" {
+	type master;
+	file "/etc/bind/ifrn.asa.br";	
+	allow-transfer { any; };
+	allow-query { any; };
+};
+
 zone "parnamirim.ifrn.asa.br" {
 	type master;
 	file "/etc/bind/parnamirim.ifrn.asa.br";	
