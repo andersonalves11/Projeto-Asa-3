@@ -18,7 +18,4 @@ zone "parnamirim.ifrn.asa.br" {
 	allow-query { any; };
 };
 
-zone "2.25.10.in-addr.arpa" {
-    type master;
-    file "/etc/bind/parnamirim.ifrn.asa.br.10.25.2";
-};
+
