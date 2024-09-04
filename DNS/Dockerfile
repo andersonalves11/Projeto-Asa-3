@@ -1,11 +1,7 @@
 FROM ubuntu/bind9
 
-RUN apt update 
-
-RUN apt upgrade -y
-
-RUN apt install dnsutils -y
-
+RUN apt-get update && \
+    apt-get install -y bind9 bind9utils bind9-doc
 
 # Copy config files
 COPY ifrn.asa.br /etc/bind 
