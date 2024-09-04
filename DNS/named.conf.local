@@ -18,4 +18,8 @@ zone "parnamirim.ifrn.asa.br" {
 	allow-query { any; };
 };
 
+include "/etc/bind/named.conf.options";
+include "/etc/bind/named.conf.default-zones";
+include "/etc/bind/named.conf.local";
+
 
