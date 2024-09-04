@@ -14,6 +14,5 @@ COPY named.conf.local /etc/bind
 EXPOSE 53/tcp
 EXPOSE 53/udp
 
-
 # Start the Name Service
 CMD ["/usr/sbin/named", "-g", "-c", "/etc/bind/named.conf", "-u", "bind"]
