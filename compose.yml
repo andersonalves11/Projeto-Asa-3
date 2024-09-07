@@ -80,8 +80,7 @@ services:
       - ./dns/etc:/etc/bind
     networks:
       - asa-network
- 
- mail:
+ email:
     build:
       context: ./Email
       dockerfile: Dockerfile
