@@ -64,7 +64,7 @@ services:
         - db_data:/var/lib/mysql
       networks:
         - asa-network
- dns:
+  dns:
     build:
       context: ./DNS
       dockerfile: Dockerfile
@@ -81,7 +81,7 @@ services:
     networks:
       - asa-network
  
-mail:
+ mail:
     build:
       context: ./Email
       dockerfile: Dockerfile
