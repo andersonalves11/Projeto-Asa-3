@@ -2,7 +2,7 @@
 ; BIND data file for local loopback interface
 ;
 $TTL	604800
-@		IN		SOA	 	ifrn.asa.br. 	root.asa.br. (
+@	IN	SOA	 ifrn.asa.br. 	root.asa.br. (
 			 2024091523     ; Serial
 			 604800		; Refresh
 			  86400		; Retry
