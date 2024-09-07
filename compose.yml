@@ -82,7 +82,7 @@ services:
       - asa-network
   email:
     build:
-      context: ./Email
+      context: ./E-mail
       dockerfile: Dockerfile
     image: email
     container_name: email
