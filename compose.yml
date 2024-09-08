@@ -64,9 +64,9 @@ services:
         - db_data:/var/lib/mysql
       networks:
         - asa-network
-  dns:
+  bind9:
     build:
-      context: ./DNS
+      context: ./dns
       dockerfile: Dockerfile
     image: dns
     container_name: dns
@@ -77,7 +77,7 @@ services:
       - "53:53/tcp"
       - "53:53/udp"
     volumes:
-      - ./DNS/etc:/etc/bind
+      - ./dns/etc:/etc/bind
     networks:
       - asa-network
   email:
@@ -86,7 +86,7 @@ services:
       dockerfile: Dockerfile
     image: email
     container_name: email
-    hostname: mail.asa.br
+    hostname: mail.ifrn.asa.br
     restart: always
     tty: true
     ports:
