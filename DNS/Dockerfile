@@ -7,8 +7,12 @@ RUN apt upgrade
 RUN apt install dnsutils -y
 
 # Copy config files
+<<<<<<< HEAD
 COPY ifrn.asa.br /etc/bind/named.conf
 COPY named.conf.local /etc/bind/named.conf
+=======
+COPY ./etc/* /etc/bind
+>>>>>>> 9ccb9adea5cf57be9fa73eb789e5915fbe6c57cc
 
 # Expose Ports
 EXPOSE 53/tcp
