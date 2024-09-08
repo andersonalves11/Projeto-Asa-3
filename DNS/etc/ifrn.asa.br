@@ -13,5 +13,5 @@ $TTL	604800
 @		IN		NS	ns1.ifrn.asa.br. 
 ns1		IN		A	192.168.10.1
 mail		IN		A 	192.168.10.1
-www		IN		CNAME	ns1
+www		IN		CNAME	ns1.ifrn.asa.br. 
 
