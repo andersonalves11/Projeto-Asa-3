@@ -12,6 +12,6 @@ $TTL	604800
 @	IN  MX 10 mail.par.ifrn.asa.br.
 @	IN	NS	ns1.par.ifrn.asa.br.
 
-ns1			A	192.168.1.12 ;10.25.4.30 
-mail		A 	192.168.1.12 ;10.25.4.30 	
+ns1			A	192.168.10.2 ;10.25.4.30 
+mail		A 	192.168.10.2 ;10.25.4.30 	
 www			CNAME	ns1.par.ifrn.asa.br
