@@ -70,7 +70,7 @@ services:
       dockerfile: Dockerfile
     image: dns
     container_name: dns
-    hostname: ns1.asa.br
+    hostname: ns1.ifrn.asa.br
     restart: always
     tty: true
     ports:
