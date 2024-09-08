@@ -1,17 +1,17 @@
-FROM ubuntu/bind9
+FROM ubuntu:latest
 
-RUN apt update
+RUN apt-get update && apt-get install -y bind9 bind9utils bind9-doc
 
-RUN apt upgrade 
+RUN mkdir -p /run/named && \
+    chown bind:bind /run/named && \
+    chmod 755 /run/named
 
-RUN apt install dnsutils -y
-
-# Copy config files
 COPY ./etc/* /etc/bind
 
-# Expose Ports
 EXPOSE 53/tcp
 EXPOSE 53/udp
+EXPOSE 953/tcp
 
-# Start the Name Service
 CMD ["/usr/sbin/named", "-g", "-c", "/etc/bind/named.conf", "-u", "bind"]
+# Start the Name Service
+
