@@ -64,11 +64,11 @@ services:
         - db_data:/var/lib/mysql
       networks:
         - asa-network
-  bind9:
+  dns:
     build:
       context: ./dns
       dockerfile: Dockerfile
-    image: dns
+    image: ubuntu:latest
     container_name: dns
     hostname: ns1.ifrn.asa.br
     restart: always
