@@ -76,6 +76,7 @@ services:
     ports:
       - "53:53/tcp"
       - "53:53/udp"
+      - "953:953/tcp"
     volumes:
       - ./dns/etc:/etc/bind
     networks:
