@@ -77,7 +77,7 @@ services:
       - "53:53/tcp"
       - "53:53/udp"
     volumes:
-      - ./dns/etc:/etc/bind
+      - ./DNS /etc/bind
     networks:
       - asa-network
   email:

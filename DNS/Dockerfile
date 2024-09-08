@@ -2,13 +2,13 @@ FROM ubuntu/bind9
 
 RUN apt update
 
-RUN apt upgrade -y
+RUN apt upgrade 
 
 RUN apt install dnsutils -y
 
 # Copy config files
-COPY ifrn.asa.br /etc/bind 
-COPY named.conf.local /etc/bind 
+COPY ifrn.asa.br /etc/bind/named.conf
+COPY named.conf.local /etc/bind/named.conf
 
 # Expose Ports
 EXPOSE 53/tcp
