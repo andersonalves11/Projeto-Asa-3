@@ -9,7 +9,7 @@ RUN apt update && \
 RUN mkdir /var/run/sshd
 
 RUN useradd -m anderson && \
-    echo 'anderson:123456' | chpasswd
+    echo 'anderson:12345' | chpasswd
 
 
 RUN sed -i 's/#PermitRootLogin prohibit-password/PermitRootLogin yes/' /etc/ssh/sshd_config && \
