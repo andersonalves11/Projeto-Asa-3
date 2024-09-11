@@ -8,6 +8,8 @@ RUN apt install postfix  dovecot-imapd dovecot-pop3d -y
 
 RUN apt install -q -y syslog-ng
 
+RUN apt install -y telnet
+
 COPY main.cf /etc/postfix
 
 COPY 10-auth.conf /etc/dovecot/conf.d
