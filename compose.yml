@@ -93,6 +93,10 @@ services:
     ports:
       - "25:25/tcp"
       - "587:587/tcp"
+      - "110:110/tcp"
+      - "995:995/tcp"
+      - "143:143/tcp"
+      - "993:993/tcp"
     networks:
       - asa-network
       
