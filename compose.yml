@@ -99,7 +99,14 @@ services:
       - "993:993/tcp"
     networks:
       - asa-network
-      
+  ssh:
+    build:
+      context: ./ssh
+      dockerfile: Dockerfile
+    image: ssh
+    container_name: ssh
+    ports:
+      - "22:22/tcp"      
 volumes:
   wordpress_data:
   db_data:
