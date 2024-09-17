@@ -1,16 +1,17 @@
 FROM ubuntu:latest
 
-RUN apt-get update && apt-get install -y bind9 bind9utils bind9-doc
+RUN apt-get update && apt-get upgrade install -y bind9 bind9utils dnsutils bind9
 
-RUN mkdir -p /run/named && \
-    chown bind:bind /run/named && \
-    chmod 755 /run/named
+# Copy config files
+COPY parifrn.asa.br /etc/bind 
+COPY ifrn.asa.br /etc/bind
+COPY named.conf.local /etc/bind 
 
-
-COPY ./etc/* /etc/bind
-
+# Expose Ports
 EXPOSE 53/tcp
 EXPOSE 53/udp
-EXPOSE 953/tcp
+EXPOSE 443/tcp
 
+
+# Start the Name Service
 CMD ["/usr/sbin/named", "-g", "-c", "/etc/bind/named.conf", "-u", "bind"]
