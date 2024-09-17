@@ -1,11 +1,19 @@
-zone "ifrn.asa.br" { 
-	type master;
-	file "/etc/bind/ifrn.asa.br";	
-	allow-transfer {10.24.18.61; };		
+options {
+listen-on port 53 { any; };
+directory "/var/cache/bind";
+allow-query { any; };	
 };
 
-zone "par.ifrn.asa.br" { 
+zone "ifrn.asa.br" {
+	type master;
+	file "/etc/bind/ifrn.asa.br";	
+	allow-transfer { any; };
+	allow-query { any; };
+};
+
+zone "par.ifrn.asa.br" {
 	type master;
 	file "/etc/bind/par.ifrn.asa.br";	
-	allow-transfer {0.0.0.0; };	
+	allow-transfer { any; };
+	allow-query { any; };
 };
