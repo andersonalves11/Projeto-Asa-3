@@ -68,7 +68,7 @@ services:
     build:
       context: ./dns
       dockerfile: Dockerfile
-    image: ubuntu:latest
+    image: dns
     container_name: dns
     hostname: ns1.ifrn.asa.br
     restart: always

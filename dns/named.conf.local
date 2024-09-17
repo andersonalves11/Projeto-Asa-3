@@ -1,7 +1,7 @@
 zone "ifrn.asa.br" { 
 	type master;
 	file "/etc/bind/ifrn.asa.br";	
-	allow-transfer {0.0.0.0; };		
+	allow-transfer {10.24.18.61; };		
 };
 
 zone "par.ifrn.asa.br" { 
