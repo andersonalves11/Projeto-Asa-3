@@ -13,5 +13,5 @@ $TTL	604800
 @	IN	NS	ns1.par.ifrn.asa.br.
 
 ns1			A	0.0.0.0
-mail		A 	0.0.0.0	
+mail			A 	0.0.0.0	
 www			CNAME	ns1.par.ifrn.asa.br
