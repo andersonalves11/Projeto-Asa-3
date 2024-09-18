@@ -3,7 +3,7 @@
 ;
 $TTL	604800
 @	IN	SOA	ns1.ifrn.asa.br. root.asa.br. (
-			 202409081852     		; Serial
+			 3     		; Serial
 			 604800		; Refresh
 			  86400		; Retry
 			2419200		; Expire
@@ -11,6 +11,6 @@ $TTL	604800
 ;
 @	IN  	MX 10 mail.ifrn.asa.br.
 @	IN	NS	ns1.ifrn.asa.br.
-ns1		A	10.24.18.61 
-mail		A 	10.24.18.61
-www			CNAME	ns1.ifrn.asa.br.
+ns1		A	127.0.0.1
+mail	A 	127.0.0.1
+www			CNAME	ns1
