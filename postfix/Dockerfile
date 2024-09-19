@@ -1,4 +1,4 @@
-FROM ubuntu:latest
+FROM ubuntu
 RUN apt update
 RUN apt upgrade -y
 RUN apt-get install -y postfix dovecot-core dovecot-imapd dovecot-pop3d mailutils telnet

@@ -7,21 +7,7 @@ services:
     container_name: web
     networks:
       - asa-network
-  dns:
-    build:
-      context: ./dns
-      dockerfile: Dockerfile
-    image: dns
-    container_name: dns
-    restart: always
-    tty: true
-    ports:
-      - "53:53/tcp"
-      - "53:53/udp"
-      - "953:953/tcp"
-    networks:
-      - asa-network
-      
+
   postfix:
     build:
       context: ./postfix
@@ -145,6 +131,22 @@ services:
       - MYSQL_USER=nextcloud
       networks:
       - asa-network
+
+  dns:
+    build:
+      context: ./dns
+      dockerfile: Dockerfile
+    image: dns
+    container_name: dns
+    restart: always
+    tty: true
+    ports:
+      - "53:53/tcp"
+      - "53:53/udp"
+      - "953:953/tcp"
+    networks:
+      - asa-network
+      
   ssh:
     build:
       context: ./ssh
