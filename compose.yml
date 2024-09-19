@@ -81,7 +81,7 @@ services:
       #- ./dns/etc:/etc/bind
     networks:
       - asa-network
-  email:
+  postfix:
     build:
       context: ./E-mail
       dockerfile: Dockerfile
@@ -106,7 +106,7 @@ services:
     image: ssh
     container_name: ssh
     ports:
-      - "22:22/tcp"      
+      - "2222:22/tcp"      
 volumes:
   wordpress_data:
   db_data:
