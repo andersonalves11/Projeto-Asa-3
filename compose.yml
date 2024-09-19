@@ -1,13 +1,13 @@
 services:
-  web01:
+  web:
     build:
-      context: ./web01
+      context: ./web
       dockerfile: Dockerfile
-    image: web01
-    container_name: web01
+    image: web
+    container_name: web
     networks:
       - asa-network
-  web02:
+  wordpress2:
     build:
       context: ./web02
       dockerfile: Dockerfile
