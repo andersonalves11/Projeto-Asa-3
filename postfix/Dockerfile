@@ -1,24 +1,30 @@
-FROM ubuntu:20.04
-
+FROM ubuntu:latest
 RUN apt update
-
 RUN apt upgrade -y
-
-RUN apt install postfix  dovecot-imapd dovecot-pop3d -y
-
+RUN apt-get install -y postfix dovecot-core dovecot-imapd dovecot-pop3d mailutils telnet
 RUN apt install -q -y syslog-ng
-
 RUN apt install -y telnet
 
-COPY main.cf /etc/postfix
 
-COPY 10-auth.conf /etc/dovecot/conf.d
+COPY main.cf /etc/postfix/
+COPY master.cf /etc/postfix/
+COPY dovecot.conf /etc/dovecot/
+COPY 10-auth.conf /etc/dovecot/conf.d/
+COPY 10-mail.conf /etc/dovecot/conf.d/
+COPY 10-master.conf /etc/dovecot/conf.d/
+COPY certificate.crt /etc/ssl/certs/certificate.crt
+COPY key.key /etc/ssl/private/key.key
+
+RUN chown root:dovecot /etc/ssl/private/key.key
+RUN chown root:dovecot /etc/ssl/certs/certificate.crt
+
 
 # Add User
 RUN useradd -m bob
 RUN useradd -m anderson
 RUN useradd -m gleyka
 RUN useradd -m redes
+
 # Set user passord
 RUN echo "bob:redes"|chpasswd
 RUN echo "anderson:redes"|chpasswd
