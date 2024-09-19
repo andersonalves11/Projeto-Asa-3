@@ -12,11 +12,11 @@ COPY dovecot.conf /etc/dovecot/
 COPY 10-auth.conf /etc/dovecot/conf.d/
 COPY 10-mail.conf /etc/dovecot/conf.d/
 COPY 10-master.conf /etc/dovecot/conf.d/
-COPY crt.crt /etc/ssl/certs/crt.crt
+COPY cert.cert /etc/ssl/certs/cert.cert
 COPY cert.key /etc/ssl/private/cert.key
 
 RUN chown root:dovecot /etc/ssl/private/cert.key
-RUN chown root:dovecot /etc/ssl/certs/crt.crt
+RUN chown root:dovecot /etc/ssl/certs/cert.cert
 
 
 # Add User
