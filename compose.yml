@@ -83,10 +83,10 @@ services:
       - asa-network
   postfix:
     build:
-      context: ./E-mail
+      context: ./postfix
       dockerfile: Dockerfile
     image: email
-    container_name: email
+    container_name: postfix
     hostname: mail.ifrn.asa.br
     restart: always
     tty: true
