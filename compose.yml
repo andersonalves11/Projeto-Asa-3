@@ -6,15 +6,15 @@ services:
     image: web
     container_name: web
     networks:
-      - asa-network
+     - asa-network
 
   postfix:
     build:
       context: ./postfix
       dockerfile: Dockerfile
     image: email
-    container_name: postfix
-    hostname: mail.ifrn.asa.br
+    container_name: email
+    #hostname: mail.ifrn.asa.br
     restart: always
     tty: true
     ports:
@@ -46,9 +46,7 @@ services:
       - asa-network
       
   wordpress:
-      image: wordpress
-      #ports:
-       # - "8081:80"
+      image: wordpress:latest
       environment:
         WORDPRESS_DB_HOST: db:3306
         WORDPRESS_DB_NAME: wordpress
@@ -71,7 +69,7 @@ services:
         - asa-network
 
   wordpress2:
-      image: wordpress
+      image: wordpress:latest
       container_name: wordpress2
       restart: always
       depends_on:
