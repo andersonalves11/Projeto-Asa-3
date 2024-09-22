@@ -9,9 +9,8 @@ $TTL	604800
 			2419200		; Expire
 			 604800 )	; Negative Cache TTL
 ;
-@	IN  MX 10 mail.par.ifrn.asa.br.
-@	IN	NS	ns1.par.ifrn.asa.br.
-
-ns1			A	127.0.0.1
-mail		A 	127.0.0.1	
-www			CNAME	ns1
+@       IN  NS      ns1.ifrn.asa.br.
+@       IN  A       192.168.0.8
+ns      IN  A       192.168.0.8
+par		IN  A       192.168.0.8
+www     IN  CNAME   ns1
