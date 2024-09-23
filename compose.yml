@@ -60,7 +60,8 @@ services:
       - asa-network
       
   wordpress:
-      image: wordpress:latest
+      image: wordpress
+      container_name: portal
       environment:
         WORDPRESS_DB_HOST: db:3306
         WORDPRESS_DB_NAME: wordpress
@@ -83,8 +84,8 @@ services:
         - asa-network
 
   wordpress2:
-      image: wordpress:latest
-      container_name: wordpress2
+      image: wordpress
+      container_name: portal2
       restart: always
       depends_on:
       - db2
@@ -143,6 +144,18 @@ services:
       - MYSQL_USER=nextcloud
       networks:
       - asa-network
+  
+  thunderbird:
+    image: jlesage/thunderbird
+    container_name: thunderbird
+    ports:
+      - "5800:5800"  # Porta para acessar a interface web
+    volumes:
+       - db4:/config  # Volume para persistência de dados
+    environment:
+      - USER_ID=1000  # Altere conforme necessário
+      - GROUP_ID=1000  # Altere conforme necessário
+    restart: unless-stopped
 
   ssh:
     build:
@@ -152,7 +165,8 @@ services:
     container_name: ssh
     ports:
       - "2222:22/tcp"
-
+      
+      
 volumes:
   wordpress:
   db:
@@ -160,7 +174,9 @@ volumes:
   db2:
   nextcloud:
   db3:
-  
+  thunderbird:
+  db4:
+
 #Docker networks
 networks:
   asa-network:
