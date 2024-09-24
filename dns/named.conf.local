@@ -1,8 +1,8 @@
 zone "ifrn.asa.br" {
 	type master;
 	file "/etc/bind/ifrn.asa.br";
-	forwarders { 192.168.0.8;8.8.8.8;};	
-	allow-transfer { 192.168.0.8; };
+	forwarders { 10.24.25.225;8.8.8.8;};	
+	allow-transfer { 10.24.25.225; };
 	allow-query { any; };
 };
 
