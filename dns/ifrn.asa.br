@@ -17,5 +17,5 @@ web			IN	A	192.168.0.8
 portal		IN	A	192.168.0.8
 webmail		IN	A	192.168.0.8
 par			IN	A	192.168.0.8
-mail			A 	192.168.0.8
+mail		IN	A 	192.168.0.8
 www 		IN  CNAME   ns

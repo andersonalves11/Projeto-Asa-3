@@ -1,12 +1,4 @@
 services:
-  web:
-    build:
-      context: ./web
-      dockerfile: Dockerfile
-    image: web
-    container_name: web
-    networks:
-     - asa-network
   dns:
     build:
       context: ./dns
@@ -28,7 +20,7 @@ services:
       dockerfile: Dockerfile
     image: email
     container_name: email
-    #hostname: mail.ifrn.asa.br
+    hostname: mail.ifrn.asa.br
     restart: always
     tty: true
     ports:
@@ -51,7 +43,6 @@ services:
       - "80:80/tcp"
       - "443:443/tcp"
     depends_on:
-      - web
       - webmail
       - wordpress
       - wordpress2
@@ -119,6 +110,8 @@ services:
     restart: always
     links:
       - db3
+    ports:
+    - "8080:80"  
     volumes:
       - nextcloud:/var/www/html
       - ./webmail/config.php:/var/www/html/config/config.php
