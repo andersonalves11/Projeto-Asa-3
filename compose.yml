@@ -108,10 +108,10 @@ services:
     container_name: webmail
     restart: always
     links:
-      - db3
+      - db3 
     volumes:
       - nextcloud:/var/www/html
-      - ./webmail/config.php:/var/www/html/config/config.php
+      
     environment:
       - MYSQL_PASSWORD=admin
       - MYSQL_DATABASE=nextcloud
@@ -135,19 +135,6 @@ services:
       networks:
       - asa-network
 
-  thunderbird:
-    image: jlesage/thunderbird
-    container_name: thunderbird
-    ports:
-      - "5800:5800"  # Porta para acessar a interface web
-    volumes:
-       - db4:/config  # Volume para persistência de dados
-    environment:
-      - USER_ID=1000  # Altere conforme necessário
-      - GROUP_ID=1000  # Altere conforme necessário
-    restart: unless-stopped    
-   
-
   ssh:
     build:
       context: ./ssh
@@ -164,8 +151,6 @@ volumes:
   db2:
   nextcloud:
   db3:
-  thunderbird:
-  db4:
   
 #Docker networks
 networks:
